@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f4c43a3-5f8f-4726-9cad-10ce7ceca4d6" name="Default Changelist" comment="" />
+    <list default="true" id="6f4c43a3-5f8f-4726-9cad-10ce7ceca4d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/mk/ukim/finki/emt/sharedkernel/domain/base/ValueObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car-catalog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/car-catalog/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car-catalog/src/main/java/mk/ukim/finki/emt/carcatalog/domain/models/CarType.java" beforeDir="false" afterPath="$PROJECT_DIR$/car-catalog/src/main/java/mk/ukim/finki/emt/carcatalog/domain/models/CarType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car-catalog/src/main/java/mk/ukim/finki/emt/carcatalog/domain/models/valueObject/BodyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/car-catalog/src/main/java/mk/ukim/finki/emt/carcatalog/domain/models/value_object/BodyType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clients/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rental-management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rental-management/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-kernel/src/main/java/mk/ukim/finki/emt/sharedkernel/domain/financial/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/mk/ukim/finki/emt/sharedkernel/domain/financial/Money.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,10 +35,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1xRktLnbZQeeyhDetvUnvwmJ6Fj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -48,7 +66,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Spring Boot.RentalManagementApplication">
+  <component name="RunManager" selected="Spring Boot.CarCatalogApplication">
     <configuration name="CarCatalogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="car-catalog" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.emt.carcatalog.CarCatalogApplication" />
@@ -111,7 +129,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630325509107</updated>
-      <workItem from="1630325525326" duration="7155000" />
+      <workItem from="1630325525326" duration="8929000" />
     </task>
     <servers />
   </component>
@@ -139,38 +157,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="326" y="100" width="814" height="651" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1630339804782" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1630328405002">
+    <state width="1493" height="500" key="GridCell.Tab.0.bottom" timestamp="1630343350659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630328405002" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1630328404987">
+    <state width="1493" height="500" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630343350659" />
+    <state width="1493" height="500" key="GridCell.Tab.0.center" timestamp="1630343350658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1630328404987" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1630328404987">
+    <state width="1493" height="500" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1630343350658" />
+    <state width="1493" height="500" key="GridCell.Tab.0.left" timestamp="1630343350658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1630328404987" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1630328404987">
+    <state width="1493" height="500" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1630343350658" />
+    <state width="1493" height="500" key="GridCell.Tab.0.right" timestamp="1630343350658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1630328404987" />
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1630328405002">
+    <state width="1493" height="500" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1630343350658" />
+    <state width="1493" height="500" key="GridCell.Tab.1.bottom" timestamp="1630343350659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630328405002" />
-    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1630328405002">
+    <state width="1493" height="500" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630343350659" />
+    <state width="1493" height="500" key="GridCell.Tab.1.center" timestamp="1630343350659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1630328405002" />
-    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1630328405002">
+    <state width="1493" height="500" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1630343350659" />
+    <state width="1493" height="500" key="GridCell.Tab.1.left" timestamp="1630343350659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1630328405002" />
-    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1630328405002">
+    <state width="1493" height="500" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1630343350659" />
+    <state width="1493" height="500" key="GridCell.Tab.1.right" timestamp="1630343350659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1630328405002" />
+    <state width="1493" height="500" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1630343350659" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1630326225201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
