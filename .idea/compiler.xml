@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shared-kernel" />
-        <module name="rental-management" />
         <module name="ddd-car-rental-software-tool" />
         <module name="clients" />
+        <module name="rental-management" />
         <module name="car-catalog" />
       </profile>
     </annotationProcessing>

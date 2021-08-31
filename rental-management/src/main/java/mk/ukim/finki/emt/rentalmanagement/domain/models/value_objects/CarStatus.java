@@ -1,0 +1,23 @@
+package mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects;
+import lombok.Getter;
+import lombok.NonNull;
+import mk.ukim.finki.emt.sharedkernel.domain.base.ValueObject;
+
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+@Embeddable
+@Getter
+public class CarStatus implements ValueObject{
+
+    @Enumerated(value = EnumType.STRING)
+    private final Status status;
+
+    protected CarStatus() {
+        this.status = null;
+    }
+    public CarStatus(@NonNull Status status) {
+        this.status = status;
+    }
+}

@@ -4,8 +4,7 @@ import mk.ukim.finki.emt.carcatalog.domain.models.value_object.BodyType;
 import mk.ukim.finki.emt.sharedkernel.domain.base.AbstractEntity;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="car_type")
@@ -18,4 +17,8 @@ public class CarType extends AbstractEntity<CarTypeId> {
     private BodyType bodyType;
     private String fuelType;
     private int numberOfAvailableCars;
+//    @AttributeOverrides({@AttributeOverride(name = "amount", column =
+//    @Column(name = "price")), @AttributeOverride(name = "currency", column =
+//    @Column(name = "price_currency"))})
+//    private Money price;
 }
