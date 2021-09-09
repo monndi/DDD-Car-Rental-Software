@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.carcatalog.domain.models.value_object;
+package mk.ukim.finki.emt.sharedkernel.domain.valueobjects;
 
 import lombok.Getter;
 import lombok.NonNull;

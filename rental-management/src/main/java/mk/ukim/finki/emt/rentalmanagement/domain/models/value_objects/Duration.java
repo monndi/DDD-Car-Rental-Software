@@ -1,10 +1,12 @@
 package mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import mk.ukim.finki.emt.sharedkernel.domain.base.ValueObject;
 
 import javax.persistence.Embeddable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Embeddable
@@ -20,5 +22,11 @@ public class Duration implements ValueObject {
     public Duration(@NonNull Date startDate, @NonNull Date returnDate) {
         this.startDate = startDate;
         this.returnDate = returnDate;
+    }
+    public long getDuration() {
+        return  ((returnDate.getTime() - startDate.getTime()) / (1000 * 60 * 60)) % 24;
+    }
+    public Duration changeReturnDate(Date returnDate) {
+        return new Duration(this.startDate, returnDate);
     }
 }

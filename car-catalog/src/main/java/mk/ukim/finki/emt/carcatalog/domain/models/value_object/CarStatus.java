@@ -1,5 +1,4 @@
-package mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects;
-
+package mk.ukim.finki.emt.carcatalog.domain.models.value_object;
 import lombok.Getter;
 import lombok.NonNull;
 import mk.ukim.finki.emt.sharedkernel.domain.base.ValueObject;
@@ -10,15 +9,15 @@ import javax.persistence.Enumerated;
 
 @Embeddable
 @Getter
-public class CarState implements ValueObject{
+public class CarStatus implements ValueObject{
 
     @Enumerated(value = EnumType.STRING)
-    private final State state;
+    private final Status status;
 
-    protected CarState() {
-        this.state = null;
+    protected CarStatus() {
+        this.status = null;
     }
-    public CarState(@NonNull State state) {
-        this.state = state;
+    public CarStatus(@NonNull Status status) {
+        this.status = status;
     }
 }
