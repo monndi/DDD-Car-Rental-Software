@@ -1,12 +1,12 @@
-package mk.ukim.finki.emt.carcatalog.domain.service;
+package mk.ukim.finki.emt.carcatalog.service;
 
 import mk.ukim.finki.emt.carcatalog.domain.exceptions.CarIdNotExistException;
 import mk.ukim.finki.emt.carcatalog.domain.exceptions.CarTypeIdNotExistException;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarId;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarType;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarTypeId;
-import mk.ukim.finki.emt.carcatalog.domain.service.forms.CarForm;
-import mk.ukim.finki.emt.carcatalog.domain.service.forms.CarTypeForm;
+import mk.ukim.finki.emt.carcatalog.service.forms.CarForm;
+import mk.ukim.finki.emt.carcatalog.service.forms.CarTypeForm;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
 
 import java.util.List;

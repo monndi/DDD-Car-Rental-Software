@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.carcatalog.domain.service.impl;
+package mk.ukim.finki.emt.carcatalog.service.impl;
 
 import lombok.AllArgsConstructor;
 import mk.ukim.finki.emt.carcatalog.domain.exceptions.CarIdNotExistException;
@@ -6,11 +6,10 @@ import mk.ukim.finki.emt.carcatalog.domain.exceptions.CarTypeIdNotExistException
 import mk.ukim.finki.emt.carcatalog.domain.models.CarId;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarType;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarTypeId;
-import mk.ukim.finki.emt.carcatalog.domain.models.value_object.CarStatus;
 import mk.ukim.finki.emt.carcatalog.domain.repository.CarTypeRepository;
-import mk.ukim.finki.emt.carcatalog.domain.service.CarTypeService;
-import mk.ukim.finki.emt.carcatalog.domain.service.forms.CarForm;
-import mk.ukim.finki.emt.carcatalog.domain.service.forms.CarTypeForm;
+import mk.ukim.finki.emt.carcatalog.service.CarTypeService;
+import mk.ukim.finki.emt.carcatalog.service.forms.CarForm;
+import mk.ukim.finki.emt.carcatalog.service.forms.CarTypeForm;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

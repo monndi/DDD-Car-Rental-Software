@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.carcatalog.domain.service.forms;
+package mk.ukim.finki.emt.carcatalog.service.forms;
 
 import lombok.Data;
 import mk.ukim.finki.emt.carcatalog.domain.models.Car;

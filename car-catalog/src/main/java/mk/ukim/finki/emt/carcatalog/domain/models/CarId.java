@@ -11,4 +11,10 @@ public class CarId extends DomainObjectId {
     public CarId(@NonNull String uuid) {
         super(uuid);
     }
+
+    public static CarId of(String uuid) {
+        CarId id = new CarId(uuid);
+        return id;
+    }
+
 }

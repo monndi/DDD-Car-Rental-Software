@@ -18,7 +18,13 @@ public class CarState implements ValueObject {
     protected CarState() {
         this.state = null;
     }
+
     public CarState(@NonNull State state) {
         this.state = state;
+    }
+
+    public static CarState of(String state) {
+        CarState carState = new CarState(State.valueOf(state));
+        return carState;
     }
 }

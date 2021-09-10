@@ -1,23 +1,19 @@
 package mk.ukim.finki.emt.carcatalog.domain.models;
 
+import lombok.Getter;
 import lombok.NonNull;
 import mk.ukim.finki.emt.carcatalog.domain.exceptions.CarIdNotExistException;
-import mk.ukim.finki.emt.carcatalog.domain.models.value_object.*;
 import mk.ukim.finki.emt.sharedkernel.domain.base.AbstractEntity;
-import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.BodyType;
-import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
-import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.State;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.*;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
 @Table(name="car_type")
+@Getter
 public class CarType extends AbstractEntity<CarTypeId> {
     private String carBrand;
     private String carName;
@@ -28,7 +24,7 @@ public class CarType extends AbstractEntity<CarTypeId> {
     private String fuelType;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Car> carList;
+    private List<Car> carList;
 //    @AttributeOverrides({@AttributeOverride(name = "amount", column =
 //    @Column(name = "price")), @AttributeOverride(name = "currency", column =
 //    @Column(name = "price_currency"))})
@@ -36,7 +32,7 @@ public class CarType extends AbstractEntity<CarTypeId> {
 
     private CarType() {
         super(CarTypeId.randomId(CarTypeId.class));
-        this.carList = new HashSet<>();
+        this.carList = new ArrayList<>();
     }
     public CarType(String carBrand, String carName, String year, double horsePower,double engineCapacity, BodyType bodyType, String fuelType) {
         super(CarTypeId.randomId(CarTypeId.class));
@@ -47,7 +43,7 @@ public class CarType extends AbstractEntity<CarTypeId> {
         this.engineCapacity = engineCapacity;
         this.bodyType = bodyType;
         this.fuelType = fuelType;
-        this.carList = new HashSet<>();
+        this.carList = new ArrayList<>();
     }
 
 

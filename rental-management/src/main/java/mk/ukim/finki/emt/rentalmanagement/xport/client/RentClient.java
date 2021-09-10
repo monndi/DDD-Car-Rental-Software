@@ -19,8 +19,8 @@ public class RentClient {
     private final String serverUrl;
 
     public RentClient(@Value("${app.car-catalog.url}") String serverUrl) {
-        this.restTemplate = new RestTemplate();
         this.serverUrl = serverUrl;
+        this.restTemplate = new RestTemplate();
         var requestFactory = new SimpleClientHttpRequestFactory();
         this.restTemplate.setRequestFactory(requestFactory);
     }

@@ -2,7 +2,7 @@ package mk.ukim.finki.emt.carcatalog.xport.rest;
 
 import lombok.AllArgsConstructor;
 import mk.ukim.finki.emt.carcatalog.domain.models.CarType;
-import mk.ukim.finki.emt.carcatalog.domain.service.CarTypeService;
+import mk.ukim.finki.emt.carcatalog.service.CarTypeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

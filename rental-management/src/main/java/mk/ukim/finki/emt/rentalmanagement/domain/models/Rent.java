@@ -1,17 +1,16 @@
 package mk.ukim.finki.emt.rentalmanagement.domain.models;
 
-import lombok.NonNull;
+import lombok.Getter;
 import mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects.*;
 import mk.ukim.finki.emt.sharedkernel.domain.base.AbstractEntity;
-import mk.ukim.finki.emt.sharedkernel.domain.financial.Currency;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name="rents")
+@Getter
 public class Rent extends AbstractEntity<RentId> {
 
     private Duration rentDuration;
@@ -23,6 +22,8 @@ public class Rent extends AbstractEntity<RentId> {
 
     @AttributeOverride(name="id", column = @Column(name="car_id", nullable = false))
     private CarId carId;
+    @AttributeOverride(name="id", column = @Column(name="carType_id", nullable = false))
+    private CarTypeId carTypeId;
 
     @AttributeOverride(name="id", column = @Column(name="client_id", nullable = false))
     private ClientId clientId;
@@ -32,10 +33,11 @@ public class Rent extends AbstractEntity<RentId> {
     }
 
 
-    public Rent(Duration rentDuration, Money carPrice, CarId carId, ClientId clientId) {
+    public Rent(Duration rentDuration, Money carPrice,CarTypeId carTypeId, CarId carId, ClientId clientId) {
         super(RentId.randomId(RentId.class));
         this.rentDuration = rentDuration;
         this.carPrice = carPrice;
+        this.carTypeId = carTypeId;
         this.carId = carId;
         this.clientId = clientId;
     }

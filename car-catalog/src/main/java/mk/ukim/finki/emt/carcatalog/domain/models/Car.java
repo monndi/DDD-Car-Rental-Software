@@ -3,7 +3,7 @@ package mk.ukim.finki.emt.carcatalog.domain.models;
 import lombok.Getter;
 import lombok.NonNull;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
-import mk.ukim.finki.emt.carcatalog.domain.models.value_object.CarStatus;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarStatus;
 import mk.ukim.finki.emt.sharedkernel.domain.base.AbstractEntity;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 
@@ -21,6 +21,10 @@ public class Car extends AbstractEntity<CarId> {
     @Column(name = "price")), @AttributeOverride(name = "currency", column =
     @Column(name = "price_currency"))})
     private Money carPrice;
+
+    private Car() {
+        super(CarId.randomId(CarId.class));
+    }
 
 
     public Car(@NonNull Money carPrice, @NonNull CarState carState,  @NonNull CarStatus carStatus) {
