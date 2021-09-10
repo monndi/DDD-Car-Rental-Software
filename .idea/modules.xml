@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/car-catalog/car-catalog.iml" filepath="$PROJECT_DIR$/car-catalog/car-catalog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clients/clients.iml" filepath="$PROJECT_DIR$/clients/clients.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddd-car-rental-software-tool.iml" filepath="$PROJECT_DIR$/ddd-car-rental-software-tool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rental-management/rental-management.iml" filepath="$PROJECT_DIR$/rental-management/rental-management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared-kernel/shared-kernel.iml" filepath="$PROJECT_DIR$/shared-kernel/shared-kernel.iml" />
+    </modules>
+  </component>
+</project>

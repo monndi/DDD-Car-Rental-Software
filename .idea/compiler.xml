@@ -2,17 +2,23 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shared-kernel" />
-        <module name="clients" />
         <module name="rental-management" />
+        <module name="clients" />
         <module name="car-catalog" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="car-catalog" target="11" />
+      <module name="clients" target="11" />
+      <module name="ddd-car-rental-software-tool" target="1.5" />
+      <module name="rental-management" target="11" />
+      <module name="shared-kernel" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
