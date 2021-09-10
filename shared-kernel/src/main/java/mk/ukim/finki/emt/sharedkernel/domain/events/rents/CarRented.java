@@ -1,5 +1,7 @@
 package mk.ukim.finki.emt.sharedkernel.domain.events.rents;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import mk.ukim.finki.emt.sharedkernel.domain.config.TopicHolder;
 import mk.ukim.finki.emt.sharedkernel.domain.events.DomainEvent;

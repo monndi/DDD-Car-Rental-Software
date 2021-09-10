@@ -9,7 +9,6 @@ import mk.ukim.finki.emt.sharedkernel.domain.events.DomainEvent;
 import mk.ukim.finki.emt.sharedkernel.domain.events.rents.CarRented;
 import mk.ukim.finki.emt.sharedkernel.domain.events.rents.CarReturned;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
-import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.State;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,9 @@ public class CarEventListener {
 
     @KafkaListener(topics=TopicHolder.TOPIC_CAR_RENTED, groupId = "carCatalog")
     public void consumerCarRentedEvent(String jsonMessage) {
+        System.out.println("PRED TRY BLOK " + jsonMessage);
         try {
+            System.out.println("VO TRY BLOK " + jsonMessage);
             CarRented event = DomainEvent.fromJson(jsonMessage, CarRented.class);
             carTypeService.rentCar(CarTypeId.of(event.getCarTypeId()), CarId.of(event.getCarId()));
         } catch (Exception e) {}

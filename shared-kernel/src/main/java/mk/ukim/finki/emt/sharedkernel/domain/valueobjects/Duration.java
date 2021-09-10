@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects;
+package mk.ukim.finki.emt.sharedkernel.domain.valueobjects;
 
 import lombok.Getter;
 import lombok.NonNull;

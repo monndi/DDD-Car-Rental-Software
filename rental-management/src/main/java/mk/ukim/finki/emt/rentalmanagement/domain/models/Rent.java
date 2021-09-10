@@ -4,6 +4,7 @@ import lombok.Getter;
 import mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects.*;
 import mk.ukim.finki.emt.sharedkernel.domain.base.AbstractEntity;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.Duration;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -44,10 +44,10 @@ public class RentServiceImpl implements RentService {
 
     @Override
     public Money returnCar(ReturnForm returnForm) {
-        var rent = rentRepository.getById(returnForm.getRentId());
+        Rent rent = rentRepository.findById(returnForm.getRentId()).orElse(null);
         rent.changeRenturnDate(new Date());
         domainEventPublisher.publish(new CarReturned(rent.getCarTypeId().getId(), rent.getCarId().getId(), returnForm.getCarState().getState().toString()));
-        rentRepository.delete(rent);
+        rentRepository.deleteById(rent.getId());
         return rent.getCarPrice();
     }
 

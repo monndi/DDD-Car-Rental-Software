@@ -1,5 +1,7 @@
 package mk.ukim.finki.emt.sharedkernel.domain.events.rents;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import mk.ukim.finki.emt.sharedkernel.domain.config.TopicHolder;
 import mk.ukim.finki.emt.sharedkernel.domain.events.DomainEvent;
@@ -13,7 +15,8 @@ public class CarReturned extends DomainEvent {
         super(TopicHolder.TOPIC_CAR_RETURNED);
     }
 
-    public CarReturned(String carTypeId, String carId, String returnState) {
+
+    public CarReturned(String carTypeId,String carId,String returnState) {
         super(TopicHolder.TOPIC_CAR_RETURNED);
         this.carTypeId = carTypeId;
         this.carId = carId;

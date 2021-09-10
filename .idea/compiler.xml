@@ -7,8 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="clients" />
         <module name="shared-kernel" />
+        <module name="clients" />
         <module name="rental-management" />
         <module name="car-catalog" />
       </profile>

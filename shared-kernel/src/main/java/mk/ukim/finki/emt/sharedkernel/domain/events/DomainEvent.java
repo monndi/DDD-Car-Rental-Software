@@ -2,6 +2,7 @@ package mk.ukim.finki.emt.sharedkernel.domain.events;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import lombok.Getter;
 
 import java.time.Instant;
@@ -17,17 +18,26 @@ public abstract class DomainEvent {
     }
 
     public String toJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
+//        ObjectMapper objectMapper = new ObjectMapper();
+        Gson gson = new Gson();
         String output = null;
         try {
-            output = objectMapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) { }
-        return  output;
+           output = gson.toJson(this);
+//            output = objectMapper.writeValueAsString(this);
+        } catch (Exception e) {
+
+        }
+        return output;
     }
-    public String topic() { return  topic; }
+
+    public String topic() {
+        return topic;
+    }
 
     public static <E extends DomainEvent> E fromJson(String json, Class<E> eventClass) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(json, eventClass);
+//        ObjectMapper objectMapper = new ObjectMapper();
+        Gson gson = new Gson();
+        return gson.fromJson(json, eventClass);
     }
+
 }
