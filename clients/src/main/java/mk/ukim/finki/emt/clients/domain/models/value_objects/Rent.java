@@ -19,6 +19,7 @@ public class Rent  implements ValueObject {
     private final CarTypeId carTypeId;
 
     private final ClientId clientId;
+    private final Money totalPrice;
 
     private Rent() {
         this.id = RentId.randomId(RentId.class);
@@ -27,6 +28,7 @@ public class Rent  implements ValueObject {
         this.carId = null;
         this.carTypeId = null;
         this.clientId = null;
+        this.totalPrice = null;
     }
 
     @JsonCreator
@@ -35,12 +37,14 @@ public class Rent  implements ValueObject {
                    @JsonProperty("carPrice") Money carPrice,
                    @JsonProperty("carId")CarId carId,
                    @JsonProperty("carTypeId")CarTypeId carTypeId,
-                   @JsonProperty("clientId")ClientId clientId) {
+                   @JsonProperty("clientId")ClientId clientId,
+                @JsonProperty("totalPrice") Money totalPrice) {
         this.id = id;
         this.rentDuration = rentDuration;
         this.carPrice = carPrice;
         this.carId = carId;
         this.carTypeId = carTypeId;
         this.clientId = clientId;
+        this.totalPrice = totalPrice;
     }
 }

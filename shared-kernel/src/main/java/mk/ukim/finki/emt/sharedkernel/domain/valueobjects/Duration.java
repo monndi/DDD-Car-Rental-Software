@@ -22,7 +22,7 @@ public class Duration implements ValueObject {
         this.returnDate = returnDate;
     }
     public long getDuration() {
-        return  ((returnDate.getTime() - startDate.getTime()) / (1000 * 60 * 60)) % 24;
+        return  (((returnDate.getTime() - startDate.getTime()) / 1000) / 3600);
     }
     public Duration changeReturnDate(Date returnDate) {
         return new Duration(this.startDate, returnDate);

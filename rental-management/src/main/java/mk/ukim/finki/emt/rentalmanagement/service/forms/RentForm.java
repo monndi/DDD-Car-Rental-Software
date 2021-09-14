@@ -20,7 +20,11 @@ public class RentForm {
 
     @Valid
     @NotNull
-    private Duration rentDuration;
+    private String startDate;
+
+    @Valid
+    @NotNull
+    private String returnDate;
 
     @Valid
     @NotNull

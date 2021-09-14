@@ -12,7 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -23,23 +25,29 @@ public class ClientServiceImpl implements ClientService {
     private final Validator validator;
 
     @Override
-    public ClientId addClient(ClientForm clientForm) {
+    @Transactional
+    public Optional<ClientId> addClient(ClientForm clientForm) {
         Objects.requireNonNull(clientForm,  "client form must not be null");
         var constraintViolations = validator.validate(clientForm);
         if (constraintViolations.size() > 0) {
             throw new ConstraintViolationException("The client form is not valid", constraintViolations);
         }
         var newClient = clientRepository.saveAndFlush(toDomainObject(clientForm));
-        return newClient.getId();
+        return Optional.of(newClient.getId());
     }
 
     private Client toDomainObject(ClientForm clientForm) {
-        var client = new Client(clientForm.getClientName(), clientForm.getClientSurname(), clientForm.getClientEmail());
+        var client = new Client(clientForm.getClientId(), clientForm.getClientName(), clientForm.getClientSurname(), clientForm.getClientEmail());
         return client;
     }
 
     @Override
     public Client findById(ClientId clientId) {
         return this.clientRepository.findById(clientId).orElseThrow(ClientIdNotFoundException::new);
+    }
+
+    @Override
+    public List<Client> findAll() {
+        return this.clientRepository.findAll();
     }
 }

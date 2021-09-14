@@ -10,7 +10,12 @@ import mk.ukim.finki.emt.carcatalog.domain.repository.CarTypeRepository;
 import mk.ukim.finki.emt.carcatalog.service.CarTypeService;
 import mk.ukim.finki.emt.carcatalog.service.forms.CarForm;
 import mk.ukim.finki.emt.carcatalog.service.forms.CarTypeForm;
+import mk.ukim.finki.emt.sharedkernel.domain.financial.Currency;
+import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarStatus;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.Status;
+import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.State;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,20 +34,20 @@ public class CarTypeServiceImpl implements CarTypeService {
     private  final Validator validator;
 
     @Override
-    public CarTypeId importCarType(CarTypeForm carTypeForm) {
+    public Optional<CarTypeId> importCarType(CarTypeForm carTypeForm) {
         Objects.requireNonNull(carTypeForm,  "car type form must not be null");
         var constraintViolations = validator.validate(carTypeForm);
         if (constraintViolations.size() > 0) {
             throw new ConstraintViolationException("The car type form is not valid", constraintViolations);
         }
         var newCarType = carTypeRepository.saveAndFlush(toDomainObject(carTypeForm));
-        return newCarType.getId();
+        return Optional.of(newCarType.getId());
     }
 
     private CarType toDomainObject(CarTypeForm carTypeForm) {
         var carType= new CarType(carTypeForm.getCarBrand(), carTypeForm.getCarName(),
-                carTypeForm.getYear(), carTypeForm.getHorsePower(), carTypeForm.getEngineCapacity(), carTypeForm.getBodyType(), carTypeForm.getFuelType());
-        carTypeForm.getCars().forEach(car->carType.addNewCar(car.getCarPrice(), car.getCarState(), car.getCarStatus()));
+                carTypeForm.getYear(), carTypeForm.getHorsePower(), carTypeForm.getEngineCapacity(), carTypeForm.getBodyType(), carTypeForm.getFuelType(), carTypeForm.getImgUrl(), new Money(Currency.valueOf(carTypeForm.getCurrency()), carTypeForm.getAmount()));
+        carTypeForm.getCars().forEach(car->carType.addNewCar(car.getCarState(), car.getCarStatus()));
         return carType;
     }
 
@@ -57,10 +62,12 @@ public class CarTypeServiceImpl implements CarTypeService {
     }
 
     @Override
-    public void addCar(CarTypeId carTypeId, CarForm carForm) throws CarIdNotExistException {
+    @Transactional
+    public Optional<CarType> addCar(CarTypeId carTypeId, CarForm carForm) throws CarIdNotExistException {
         CarType carType = carTypeRepository.findById(carTypeId).orElseThrow(CarTypeIdNotExistException::new);
-        carType.addNewCar(carForm.getPrice(),carForm.getCarState(), carForm.getCarStatus());
+        carType.addNewCar(new CarState(State.valueOf(carForm.getCarState())), new CarStatus(Status.valueOf(carForm.getCarStatus())));
         carTypeRepository.saveAndFlush(carType);
+        return Optional.of(carType);
     }
 
     @Override
@@ -71,6 +78,7 @@ public class CarTypeServiceImpl implements CarTypeService {
     }
 
     @Override
+    @Transactional
     public void rentCar(CarTypeId carTypeId, CarId carId) throws CarTypeIdNotExistException, CarIdNotExistException {
         var carType = this.carTypeRepository.findById(carTypeId).orElseThrow(CarTypeIdNotExistException::new);
         carType.rentCar(carId);
@@ -78,6 +86,7 @@ public class CarTypeServiceImpl implements CarTypeService {
     }
 
     @Override
+    @Transactional
     public void returnCar(CarTypeId carTypeId, CarId carId, CarState returnState) throws CarTypeIdNotExistException, CarIdNotExistException {
         var carType = this.carTypeRepository.findById(carTypeId).orElseThrow(CarTypeIdNotExistException::new);
         carType.returnCar(carId, returnState);

@@ -43,7 +43,7 @@ public class Rent extends AbstractEntity<RentId> {
         this.clientId = clientId;
     }
 
-    public Money totalPrice() {
+    public Money getTotalPrice() {
         return carPrice.multiply(rentDuration.getDuration());
     }
 

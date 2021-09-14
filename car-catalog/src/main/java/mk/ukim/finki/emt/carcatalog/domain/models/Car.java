@@ -40,4 +40,8 @@ public class Car extends AbstractEntity<CarId> {
     public void setCarState(CarState carState) {
         this.carState = carState;
     }
+
+    public void setCarPrice(Money money) {
+        this.carPrice = money;
+    }
 }

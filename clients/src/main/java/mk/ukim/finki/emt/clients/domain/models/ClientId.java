@@ -11,4 +11,9 @@ public class ClientId extends DomainObjectId {
     public ClientId(@NonNull String uuid) {
         super(uuid);
     }
+
+    public static ClientId of(String uuid) {
+        ClientId c = new ClientId(uuid);
+        return c;
+    }
 }

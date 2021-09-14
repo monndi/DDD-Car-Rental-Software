@@ -2,6 +2,7 @@ package mk.ukim.finki.emt.carcatalog.service.forms;
 
 import lombok.Data;
 import mk.ukim.finki.emt.carcatalog.domain.models.Car;
+import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.BodyType;
 
 import javax.validation.Valid;
@@ -25,7 +26,11 @@ public class CarTypeForm {
     private BodyType bodyType;
     @NotNull
     private String fuelType;
-    @Valid
     @NotNull
+    private String imgUrl;
+    @NotNull
+    private String currency;
+    @NotNull double amount;
+
     private List<Car> cars = new ArrayList<>();
 }

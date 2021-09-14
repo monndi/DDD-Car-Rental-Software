@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import mk.ukim.finki.emt.sharedkernel.domain.base.ValueObject;
+import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.BodyType;
 
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ public class CarType implements ValueObject {
     private final double engineCapacity;
     private final BodyType bodyType;
     private final String fuelType;
+    private final Money price;
+    private final String imgUrl;
 
     private final List<Car> carList;
 
@@ -33,8 +36,9 @@ public class CarType implements ValueObject {
         this.engineCapacity = 0;
         this.bodyType = null;
         this.fuelType = null;
-        this.carList = new ArrayList<>() {
-        };
+        this.carList = new ArrayList<>();
+        this.price = null;
+        this.imgUrl = null;
     }
     @JsonCreator
     public CarType(@JsonProperty("id") CarTypeId id,
@@ -44,7 +48,9 @@ public class CarType implements ValueObject {
                    @JsonProperty("horsePower")double horsePower,
                    @JsonProperty("engineCapacity")double engineCapacity,
                    @JsonProperty("bodyType")BodyType bodyType,
-                   @JsonProperty("fuelType")String fuelType) {
+                   @JsonProperty("fuelType")String fuelType,
+                   @JsonProperty("price")Money price,
+                   @JsonProperty("imgUrl")String imgUrl) {
         this.id = id;
         this.carBrand = carBrand;
         this.carName = carName;
@@ -54,5 +60,7 @@ public class CarType implements ValueObject {
         this.bodyType = bodyType;
         this.fuelType = fuelType;
         this.carList = new ArrayList<>();
+        this.price = price;
+        this.imgUrl = imgUrl;
     }
 }

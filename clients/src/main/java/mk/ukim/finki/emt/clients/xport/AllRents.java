@@ -12,6 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -29,15 +30,15 @@ public class AllRents {
     private UriComponentsBuilder uri() {
         return UriComponentsBuilder.fromUriString(this.serverUrl);
     }
-    public List<Rent> findById(ClientId id) {
+    public Optional<List<Rent>> findById(ClientId id) {
         try {
-            return restTemplate.exchange(uri().path("/api/rents/" + id.getId()).build().toUri(),
+            return Optional.of(restTemplate.exchange(uri().path("/api/rents/" + id.getId()).build().toUri(),
                     HttpMethod.GET, null,
                     new ParameterizedTypeReference<List<Rent>>() {
 
-                    }).getBody();
+                    }).getBody());
         } catch (Exception e) {
-            return Collections.emptyList();
+            return Optional.of(Collections.emptyList());
         }
     }
 }

@@ -10,11 +10,8 @@ import javax.validation.constraints.NotNull;
 @Data
 public class CarForm {
     @NotNull
-    private Money price;
+    private String carStatus;
 
     @NotNull
-    private CarStatus carStatus;
-
-    @NotNull
-    private CarState carState;
+    private String carState;
 }

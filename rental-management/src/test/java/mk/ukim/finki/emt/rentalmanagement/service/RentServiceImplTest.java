@@ -36,18 +36,19 @@ public class RentServiceImplTest {
 
         RentForm rentForm = new RentForm();
 
-        rentForm.setRentDuration(new Duration(new SimpleDateFormat("dd/MM/yyyy").parse("01/09/2021"), new SimpleDateFormat("dd/MM/yyyy").parse("10/09/2021")));
+        rentForm.setStartDate("01/09/2021");
+        rentForm.setReturnDate("10/09/2021");
         rentForm.setCarPrice(c1.getCarList().get(0).getPrice());
         rentForm.setCarTypeId(c1.getId());
         rentForm.setCarId(c1.getCarList().get(0).getId());
         rentForm.setClientId(new ClientId("dsdsasda"));
 
-        RentId rentId = rentService.rent(rentForm);
+        RentId rentId = rentService.rent(rentForm).get();
 
         ReturnForm returnForm = new ReturnForm();
         returnForm.setRentId(rentId);
         returnForm.setCarState(new CarState(State.GOOD));
-        Money money = rentService.returnCar(returnForm);
+        Money money = rentService.returnCar(returnForm).orElse(null);
         System.out.println(money);
 
     }

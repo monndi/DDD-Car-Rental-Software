@@ -9,6 +9,9 @@ import lombok.Data;
 public class ClientForm {
     @Valid
     @NotNull
+    private String clientId;
+    @Valid
+    @NotNull
     private String clientName;
     @Valid
     @NotNull

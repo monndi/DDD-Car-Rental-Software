@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CarTypeService {
-    CarTypeId importCarType(CarTypeForm carTypeForm);
+    Optional<CarTypeId> importCarType(CarTypeForm carTypeForm);
     List<CarType> findAll();
     Optional<CarType> findById(CarTypeId carTypeId);
-    void addCar(CarTypeId carTypeId, CarForm carForm) throws CarTypeIdNotExistException;
+    Optional<CarType> addCar(CarTypeId carTypeId, CarForm carForm) throws CarTypeIdNotExistException;
     void deleteCar(CarTypeId carTypeId, CarId carId) throws CarTypeIdNotExistException, CarIdNotExistException;
     void rentCar(CarTypeId carTypeId, CarId carId) throws CarTypeIdNotExistException,CarIdNotExistException;
     void returnCar(CarTypeId carTypeId, CarId carId, CarState returnState) throws CarTypeIdNotExistException,CarIdNotExistException;
