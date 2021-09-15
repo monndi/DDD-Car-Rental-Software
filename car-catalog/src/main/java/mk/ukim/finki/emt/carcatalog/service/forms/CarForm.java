@@ -7,6 +7,8 @@ import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 
 import javax.validation.constraints.NotNull;
 
+
+// CarDto for adding new Car object
 @Data
 public class CarForm {
     @NotNull

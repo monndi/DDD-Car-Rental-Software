@@ -17,10 +17,12 @@ public class Duration implements ValueObject {
         this.startDate = null;
         this.returnDate = null;
     }
+    // Value object for Bounded Context 2
     public Duration(@NonNull Date startDate, @NonNull Date returnDate) {
         this.startDate = startDate;
         this.returnDate = returnDate;
     }
+    // Calculate the duration in hours for a specific rent
     public long getDuration() {
         return  (((returnDate.getTime() - startDate.getTime()) / 1000) / 3600);
     }

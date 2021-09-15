@@ -7,6 +7,8 @@ import mk.ukim.finki.emt.rentalmanagement.domain.models.value_objects.*;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.Duration;
 
+
+//RentDto for adding new Rent
 @Data
 public class RentForm {
 

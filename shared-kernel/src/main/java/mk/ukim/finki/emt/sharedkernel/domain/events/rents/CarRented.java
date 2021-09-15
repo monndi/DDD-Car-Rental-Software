@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import mk.ukim.finki.emt.sharedkernel.domain.config.TopicHolder;
 import mk.ukim.finki.emt.sharedkernel.domain.events.DomainEvent;
-
 @Getter
 public class CarRented extends DomainEvent {
     private String carTypeId;

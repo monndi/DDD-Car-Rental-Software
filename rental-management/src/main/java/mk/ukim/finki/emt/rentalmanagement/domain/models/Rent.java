@@ -33,7 +33,7 @@ public class Rent extends AbstractEntity<RentId> {
         super(RentId.randomId(RentId.class));
     }
 
-
+    // Aggregate Root for Bounded Context 2.
     public Rent(Duration rentDuration, Money carPrice,CarTypeId carTypeId, CarId carId, ClientId clientId) {
         super(RentId.randomId(RentId.class));
         this.rentDuration = rentDuration;
@@ -43,10 +43,12 @@ public class Rent extends AbstractEntity<RentId> {
         this.clientId = clientId;
     }
 
+    //  Calculate total price of the rent depending on carPrice and duration of the rent.
     public Money getTotalPrice() {
         return carPrice.multiply(rentDuration.getDuration());
     }
 
+    // Change the return date and duration of the rent.
     public void changeRenturnDate(Date returnDate) {
         this.rentDuration = this.rentDuration.changeReturnDate(returnDate);
     }

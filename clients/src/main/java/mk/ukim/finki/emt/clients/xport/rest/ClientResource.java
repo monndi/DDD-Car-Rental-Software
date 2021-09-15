@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.clients.xport;
+package mk.ukim.finki.emt.clients.xport.rest;
 
 
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import mk.ukim.finki.emt.clients.domain.models.value_objects.ClientRents;
 import mk.ukim.finki.emt.clients.domain.models.value_objects.Rent;
 import mk.ukim.finki.emt.clients.service.ClientService;
 import mk.ukim.finki.emt.clients.service.forms.ClientForm;
+import mk.ukim.finki.emt.clients.xport.AllRents;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

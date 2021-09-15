@@ -40,7 +40,7 @@ class App extends Component {
                        <Route path={"/cars/rent/:id"} exact render={() => <RentCar clients={this.state.clients} carType={this.state.selectedCarType} car={this.state.selectedCar} onRent={this.rentACar}/>}></Route>
                        <Route path={"/clients/add"} exact render={() => <AddClient onAddClient={this.addClient}/>}/>
                        <Route path={"/clients"} exact render={() => <Clients onDeleteClient={this.deleteClient} onViewClientRents={this.viewClientRents} clients={this.state.clients}/>}/>
-                       {/*<Redirect to={"/"}/>*/}
+                       <Redirect to={"/cars/catalog"}/>
                    </div>
                </main>
                <Footer/>

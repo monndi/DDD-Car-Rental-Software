@@ -7,6 +7,7 @@ import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+// ReturnCarDto, for returning a car in new state.
 @Data
 public class ReturnForm {
     @Valid

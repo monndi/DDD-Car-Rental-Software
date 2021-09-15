@@ -20,6 +20,7 @@ public class AllRents {
     private final RestTemplate restTemplate;
     private final String serverUrl;
 
+    // Communication point with Bounded Context 3.
     public AllRents(@Value("${app.rent-management.url}") String serverUrl) {
         this.serverUrl = serverUrl;
         this.restTemplate = new RestTemplate();
@@ -30,6 +31,7 @@ public class AllRents {
     private UriComponentsBuilder uri() {
         return UriComponentsBuilder.fromUriString(this.serverUrl);
     }
+    // Find all rents for specific client.
     public Optional<List<Rent>> findById(ClientId id) {
         try {
             return Optional.of(restTemplate.exchange(uri().path("/api/rents/" + id.getId()).build().toUri(),

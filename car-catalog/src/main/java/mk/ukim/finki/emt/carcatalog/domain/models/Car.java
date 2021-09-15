@@ -27,6 +27,7 @@ public class Car extends AbstractEntity<CarId> {
     }
 
 
+    // Aggregate in Bounded Context 1. Containing the necessary information about a car.
     public Car(@NonNull Money carPrice, @NonNull CarState carState,  @NonNull CarStatus carStatus) {
         super(CarId.randomId(CarId.class));
         this.carState = carState;

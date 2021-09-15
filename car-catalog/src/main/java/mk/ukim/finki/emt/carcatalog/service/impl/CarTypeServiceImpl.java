@@ -33,6 +33,7 @@ public class CarTypeServiceImpl implements CarTypeService {
     private final CarTypeRepository carTypeRepository;
     private  final Validator validator;
 
+    // Adding new CarType
     @Override
     public Optional<CarTypeId> importCarType(CarTypeForm carTypeForm) {
         Objects.requireNonNull(carTypeForm,  "car type form must not be null");
@@ -43,6 +44,7 @@ public class CarTypeServiceImpl implements CarTypeService {
         var newCarType = carTypeRepository.saveAndFlush(toDomainObject(carTypeForm));
         return Optional.of(newCarType.getId());
     }
+
 
     private CarType toDomainObject(CarTypeForm carTypeForm) {
         var carType= new CarType(carTypeForm.getCarBrand(), carTypeForm.getCarName(),
@@ -61,6 +63,7 @@ public class CarTypeServiceImpl implements CarTypeService {
         return carTypeRepository.findById(carTypeId);
     }
 
+    // Add car to the specified carType, in the domain service, calculate the price of the car depending of its state.
     @Override
     @Transactional
     public Optional<CarType> addCar(CarTypeId carTypeId, CarForm carForm) throws CarIdNotExistException {
@@ -69,7 +72,7 @@ public class CarTypeServiceImpl implements CarTypeService {
         carTypeRepository.saveAndFlush(carType);
         return Optional.of(carType);
     }
-
+    // Delete a car from specified carType
     @Override
     public void deleteCar(CarTypeId carTypeId, CarId carId) throws CarTypeIdNotExistException, CarIdNotExistException {
         CarType carType = carTypeRepository.findById(carTypeId).orElseThrow(CarTypeIdNotExistException::new);
@@ -77,6 +80,7 @@ public class CarTypeServiceImpl implements CarTypeService {
         carTypeRepository.saveAndFlush(carType);
     }
 
+    // Rent a specified car from specified carType, in domain service, change the status of the car as "Rented"
     @Override
     @Transactional
     public void rentCar(CarTypeId carTypeId, CarId carId) throws CarTypeIdNotExistException, CarIdNotExistException {
@@ -85,6 +89,7 @@ public class CarTypeServiceImpl implements CarTypeService {
         this.carTypeRepository.saveAndFlush(carType);
     }
 
+    // Return a specified car from specified carType, in domain service, change the status and state of the car.
     @Override
     @Transactional
     public void returnCar(CarTypeId carTypeId, CarId carId, CarState returnState) throws CarTypeIdNotExistException, CarIdNotExistException {

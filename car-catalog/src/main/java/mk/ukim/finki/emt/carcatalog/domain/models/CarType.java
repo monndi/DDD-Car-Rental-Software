@@ -35,6 +35,7 @@ public class CarType extends AbstractEntity<CarTypeId> {
         super(CarTypeId.randomId(CarTypeId.class));
         this.carList = new ArrayList<>();
     }
+    // CarType - Aggregate Root for Bounded Context 1, implementing methods for business logic for all carTypes and Cars, communicating with Bounded Context 2.
     public CarType(String carBrand, String carName, String year, double horsePower,double engineCapacity, BodyType bodyType, String fuelType, String imgUrl, Money money) {
         super(CarTypeId.randomId(CarTypeId.class));
         this.carBrand = carBrand;
@@ -49,17 +50,20 @@ public class CarType extends AbstractEntity<CarTypeId> {
         this.price = money;
     }
 
+    // Get only the available, with status : "free" and state: "good" or "perfect"
     public List<Car> getAvailableCars() {
         return carList.stream()
                 .filter(x->x.getCarStatus().getStatus() == Status.FREE && x.getCarState().getState() != State.BAD)
                 .collect(Collectors.toList());
     }
 
+    // Add new car to the carList
     public Car addNewCar(@NonNull CarState carState, @NonNull CarStatus carStatus) {
         var item = new Car(calculatePrice(price, carState), carState, carStatus);
         carList.add(item);
         return item;
     }
+    // Calculate the price of the car depending on the state of the car
     private Money calculatePrice(Money carPrice, CarState carState) {
         double amount = carPrice.getAmount();
         if (carState.getState().equals(State.BAD)) {
@@ -69,11 +73,13 @@ public class CarType extends AbstractEntity<CarTypeId> {
         }
         return new Money(carPrice.getCurrency(), amount);
     }
+    // Remove a car from the list
     public void removeCar(@NonNull CarId carId) {
         Objects.requireNonNull(carId, "car id must not be null");
         carList.removeIf(c-> c.getId().equals(carId));
     }
 
+    // Change the status and the state of a car when it is returned
     public void returnCar(CarId carId, CarState returnState) {
         var car = carList.stream().filter(x->x.getId().getId().equals(carId.getId())).findAny().orElseThrow(CarIdNotExistException::new);
         car.setCarState(returnState);
@@ -81,6 +87,7 @@ public class CarType extends AbstractEntity<CarTypeId> {
         car.setCarStatus(new CarStatus(Status.FREE));
     }
 
+    // Changes the status of the car when it is rented
     public void rentCar(CarId carId) {
         var car = carList.stream().filter(x->x.getId().getId().equals(carId.getId())).findAny().orElseThrow(CarIdNotExistException::new);
         car.setCarStatus(new CarStatus(Status.RENTED));

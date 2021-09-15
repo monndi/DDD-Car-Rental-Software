@@ -20,7 +20,7 @@ public class Money implements ValueObject {
         this.currency = null;
         this.amount = 0.0;
     }
-
+    // Shared Value Object
     public Money(@NonNull Currency currency,@NonNull double amount) {
         this.currency = currency;
         this.amount = amount;

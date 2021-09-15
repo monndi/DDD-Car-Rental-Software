@@ -34,6 +34,7 @@ public class RentServiceImpl implements RentService {
     private final DomainEventPublisher domainEventPublisher;
     private  final Validator validator;
 
+    // Rent a specified car with for specified client, notify the Bounded Context 1 that a car is rented.
     @Override
     @Transactional
     public Optional<RentId> rent(RentForm rentForm) throws ParseException {
@@ -47,6 +48,7 @@ public class RentServiceImpl implements RentService {
         return Optional.of(rent.getId());
     }
 
+    // Return specified car with new state. Notify Bounded Context 1 that a car is returned.
     @Override
     @Transactional
     public Optional<Money> returnCar(ReturnForm returnForm) {

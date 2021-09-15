@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
+// ClientDto for adding new Client.
 @Data
 public class ClientForm {
     @Valid

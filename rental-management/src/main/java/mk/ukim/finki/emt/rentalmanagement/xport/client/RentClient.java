@@ -18,6 +18,7 @@ public class RentClient {
     private final RestTemplate restTemplate;
     private final String serverUrl;
 
+    // Communication point with Bounded Context 1
     public RentClient(@Value("${app.car-catalog.url}") String serverUrl) {
         this.serverUrl = serverUrl;
         this.restTemplate = new RestTemplate();
@@ -28,6 +29,7 @@ public class RentClient {
     private UriComponentsBuilder uri() {
         return UriComponentsBuilder.fromUriString(this.serverUrl);
     }
+    // Get All available CarTypes and Cars
     public List<CarType> findAll() {
         try {
             return restTemplate.exchange(uri().path("/api/cartype").build().toUri(),

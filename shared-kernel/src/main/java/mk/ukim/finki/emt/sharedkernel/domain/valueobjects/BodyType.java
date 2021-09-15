@@ -12,7 +12,7 @@ public class BodyType implements ValueObject {
     private final int doorsNumber;
 
     private final boolean hatchback;
-
+    // Used in Bounded Context 1
     protected BodyType() {
         this.doorsNumber = 0;
         this.hatchback = false;

@@ -7,6 +7,7 @@ import mk.ukim.finki.emt.sharedkernel.domain.valueobjects.CarState;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+// DateDto for changing the return Date.
 @Data
 public class ChangeDateForm {
     @Valid

@@ -5,6 +5,12 @@ const cars = (props) => {
     return (
         <div className={"container mm-4 mt-5"}>
             <div className={"row"}>
+                <section className="jumbotron text-center">
+                    <div className="container">
+                        <h1>Available cars for {props.carType.carBrand}, {props.carType.carName}, {props.carType.year}</h1>
+                        <p className="lead text-muted">Cars from brand {props.carType.carBrand} </p>
+                    </div>
+                </section>
                 <div className={"table-responsive"}>
                     <table className={"table table-striped"}>
                         <thead>

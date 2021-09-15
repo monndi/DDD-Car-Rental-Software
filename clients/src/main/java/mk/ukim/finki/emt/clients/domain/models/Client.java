@@ -18,7 +18,7 @@ public class Client extends AbstractEntity<ClientId> {
         super(ClientId.randomId(ClientId.class));
     }
 
-
+    // Client Aggregate Root of Bounded Context 3.
     public Client(String clientId, String clientName, String clientSurname, String clientEmail) {
         super(ClientId.of(clientId));
         this.clientName = clientName;

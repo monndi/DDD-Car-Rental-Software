@@ -18,16 +18,16 @@ public class CarEventListener {
 
     private final CarTypeService carTypeService;
 
+    // Rent car event from Bounded Context 2, listen when a car is rented and make the changes.
     @KafkaListener(topics=TopicHolder.TOPIC_CAR_RENTED, groupId = "carCatalog")
     public void consumerCarRentedEvent(String jsonMessage) {
-        System.out.println("PRED TRY BLOK " + jsonMessage);
         try {
-            System.out.println("VO TRY BLOK " + jsonMessage);
             CarRented event = DomainEvent.fromJson(jsonMessage, CarRented.class);
             carTypeService.rentCar(CarTypeId.of(event.getCarTypeId()), CarId.of(event.getCarId()));
         } catch (Exception e) {}
     }
 
+    // Return car event from Bounded Context 1, listen when a car is returned and make the changes.
     @KafkaListener(topics=TopicHolder.TOPIC_CAR_RETURNED, groupId = "carCatalog")
     public void consumerCarReturnedEvent(String jsonMessage) {
         try {

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+// CarTypeDto for adding CarType object
 @Data
 public class CarTypeForm {
     @NotNull
