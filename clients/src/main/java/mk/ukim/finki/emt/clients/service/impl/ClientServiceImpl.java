@@ -50,4 +50,9 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> findAll() {
         return this.clientRepository.findAll();
     }
+
+    @Override
+    public void deleteClientById(ClientId clientId) {
+        this.clientRepository.deleteById(clientId);
+    }
 }

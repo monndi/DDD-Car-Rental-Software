@@ -13,4 +13,6 @@ public interface ClientService {
     Client findById(ClientId clientId);
 
     public List<Client> findAll();
+
+    void deleteClientById(ClientId clientId);
 }

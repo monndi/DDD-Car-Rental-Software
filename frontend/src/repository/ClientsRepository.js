@@ -15,6 +15,9 @@ const ClientService = {
     },
     viewClientRents: (clientId) => {
         return axios.get(`/client/rents/${clientId}`);
+    },
+    deleteClient: (id) => {
+        return axios.delete(`client/delete/${id}`);
     }
 };
 

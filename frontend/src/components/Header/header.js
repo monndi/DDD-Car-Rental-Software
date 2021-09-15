@@ -13,13 +13,13 @@ const header = (props) => {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <Link className="nav-link"  to={"/cars/catalog"}>{/*onClick={props.loadCarTypes()}*/}Cars Catalog</Link>
+                            <Link className="nav-link" to={"/cars/catalog"}>Cars Catalog</Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link" to={"/rents"}> {/*onClick={props.loadRents()}*/}Rents</Link>
+                            <Link className="nav-link" to={"/rents"}>Rents</Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className={"nav-link"} to={"/clients"}>{/*onClick={props.loadClients()}*/}Clients</Link>
+                            <Link className={"nav-link"} to={"/clients"}>Clients</Link>
                         </li>
                     </ul>
                     {/*<form className="form-inline mt-2 mt-md-0 ml-3">*/}

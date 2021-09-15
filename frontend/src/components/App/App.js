@@ -30,7 +30,6 @@ class App extends Component {
         return (
            <Router>
                <Header />
-               {/*loadCarTypes={this.loadCarTypes} loadRents={this.loadRents} loadClients={this.loadClients}*/}
                <main>
                    <div className={"container"}>
                        <Route path={"/cars/catalog/:id"} exact render={() => <Cars cars={this.state.cars} carType={this.state.selectedCarType} onRentCar={this.loadCar}/>}/>
@@ -40,7 +39,7 @@ class App extends Component {
                        <Route path={"/cars/:id/add"} exact render={() => <AddCar carType={this.state.selectedCarType} onAddCar={this.addCar}/>}/>
                        <Route path={"/cars/rent/:id"} exact render={() => <RentCar clients={this.state.clients} carType={this.state.selectedCarType} car={this.state.selectedCar} onRent={this.rentACar}/>}></Route>
                        <Route path={"/clients/add"} exact render={() => <AddClient onAddClient={this.addClient}/>}/>
-                       <Route path={"/clients"} exact render={() => <Clients clients={this.state.clients}/>}/>
+                       <Route path={"/clients"} exact render={() => <Clients onDeleteClient={this.deleteClient} onViewClientRents={this.viewClientRents} clients={this.state.clients}/>}/>
                        {/*<Redirect to={"/"}/>*/}
                    </div>
                </main>
@@ -75,6 +74,12 @@ class App extends Component {
         RentService.deleteRent(id)
             .then(() => {
                 this.loadRents();
+            })
+    };
+    deleteClient = (id) => {
+        ClientService.deleteClient(id)
+            .then(() => {
+                this.loadClients();
             })
     };
     loadCar = (CarId, CarTypeId) => {

@@ -35,8 +35,8 @@ const RentACar = (props) => {
                     <div className="form-group">
                         <label>Client Id</label>
                         <select name="clientId" id="clientId" className="form-control" onChange={handleChange}>
-                            {props.clients.map((client) =>
-                                <option value={client.id.id}>{client.id.id}</option>
+                            {props.clients.map((clientRent) =>
+                                <option value={clientRent.client.id.id}>{clientRent.client.id.id}</option>
                             )}
                         </select>
                         <div className="form-group">
